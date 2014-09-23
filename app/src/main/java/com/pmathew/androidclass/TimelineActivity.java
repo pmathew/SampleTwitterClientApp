@@ -30,6 +30,7 @@ public class TimelineActivity extends Activity {
     private TweetArrayAdapter tweetArrayAdapter;
     private ListView lvTweets;
     public static final int REQUEST_CODE=123;
+    private String lastTweetId=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +58,15 @@ public class TimelineActivity extends Activity {
         twitterClient.getHomeTimeline(new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(JSONArray jsonArray) {
-                tweetArrayAdapter.addAll(Tweet.fromJSONArray(jsonArray));
+                List<Tweet> tweets = Tweet.fromJSONArray(jsonArray);
+
+                if(tweets != null && tweets.size() > 0){
+                    lastTweetId = String.valueOf(tweets.get(tweets.size() - 1).getUid());
+                }
+
+                tweetArrayAdapter.addAll(tweets);
             }
-        });
+        }, lastTweetId);
 
     }
 
@@ -77,6 +84,7 @@ public class TimelineActivity extends Activity {
     }
 
     public void refresh(MenuItem menuItem){
+        lastTweetId = null;
         tweetArrayAdapter.clear();
         populateTimeline(0);
     }
@@ -84,6 +92,7 @@ public class TimelineActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        lastTweetId = null;
         tweetArrayAdapter.clear();
         populateTimeline(0);
     }
