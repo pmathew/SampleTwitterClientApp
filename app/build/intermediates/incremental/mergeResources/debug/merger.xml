@@ -4768,16 +4768,16 @@ useLogo|showHome|showTitle
                     msgid="2031811694353399454" >"Επιλέξτε κάποια εφαρμογή"
                 </string>
                 <string
-                    name="abc_searchview_description_voice"
-                    msgid="893419373245838918" >"Φωνητική αναζήτηση"
-                </string>
-                <string
                     name="abc_action_menu_overflow_description"
                     msgid="3588849162933574182" >"Περισσότερες επιλογές"
                 </string>
                 <string
                     name="abc_searchview_description_clear"
                     msgid="3691816814315814921" >"Διαγραφή ερωτήματος"
+                </string>
+                <string
+                    name="abc_searchview_description_voice"
+                    msgid="893419373245838918" >"Φωνητική αναζήτηση"
                 </string>
             </file>
             <file
@@ -6100,16 +6100,16 @@ false
                     msgid="4076576682505996667" >"Atlikta"
                 </string>
                 <string
-                    name="abc_searchview_description_search"
-                    msgid="8264924765203268293" >"Paieška"
-                </string>
-                <string
                     name="abc_shareactionprovider_share_with_application"
                     msgid="7165123711973476752" >"Bendrinti naudojant „%s“"
                 </string>
                 <string
                     name="abc_action_bar_home_description"
                     msgid="4600421777120114993" >"Eiti į pagrindinį puslapį"
+                </string>
+                <string
+                    name="abc_searchview_description_search"
+                    msgid="8264924765203268293" >"Paieška"
                 </string>
             </file>
             <file
@@ -8325,6 +8325,8 @@ false
                 </string>
                 <string name="action_settings" >Settings
                 </string>
+                <string name="title_activity_compose" >ComposeActivity
+                </string>
                 <string name="app_name" >Basic Twitter
                 </string>
                 <string name="hello_world" >Hello world!
@@ -8391,6 +8393,76 @@ false
             <file
                 name="tweet_item"
                 path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/tweet_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="ic_twitter"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xxhdpi/ic_twitter.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_twitter"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-mdpi/ic_twitter.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_twitter"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xhdpi/ic_twitter.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_compose"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xhdpi/ic_compose.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_twitter"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-hdpi/ic_twitter.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_compose"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-hdpi/ic_compose.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_compose"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-mdpi/ic_compose.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_compose"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xxhdpi/ic_compose.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_refresh"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-hdpi/ic_refresh.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_refresh"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xxhdpi/ic_refresh.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_refresh"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-mdpi/ic_refresh.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_refresh"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/drawable-xhdpi/ic_refresh.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="compose"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/menu/compose.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="activity_compose"
+                path="/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/activity_compose.xml"
                 qualifiers=""
                 type="layout" />
         </source>

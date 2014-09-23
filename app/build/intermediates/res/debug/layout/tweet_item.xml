@@ -28,4 +28,13 @@
         android:text="Large Text"
         android:id="@+id/tvBody"
 />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="1m ago"
+        android:id="@+id/tvTime"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout><!-- From: file:/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/tweet_item.xml -->
