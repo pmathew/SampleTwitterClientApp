@@ -8,15 +8,14 @@
     android:paddingBottom="2dp"
     tools:context="com.pmathew.androidclass.TimelineActivity">
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvTweets"
+
+    <FrameLayout
+        android:id="@+id/flContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true"></FrameLayout>
 </RelativeLayout>
 <!-- From: file:/Users/pmathew/Workspace/AndroidStudioProjects/SimpleTwitterClient/app/src/main/res/layout/activity_timeline.xml -->

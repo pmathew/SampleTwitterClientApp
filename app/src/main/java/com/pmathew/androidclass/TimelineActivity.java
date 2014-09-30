@@ -1,7 +1,9 @@
 package com.pmathew.androidclass;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +16,11 @@ import android.widget.Toast;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.pmathew.androidclass.R;
 import com.pmathew.androidclass.adapter.TweetArrayAdapter;
+import com.pmathew.androidclass.fragments.HomeTimelineFragment;
+import com.pmathew.androidclass.fragments.MentionsTimelineFragment;
+import com.pmathew.androidclass.fragments.TweetListFragment;
 import com.pmathew.androidclass.listener.EndlessScrollListener;
+import com.pmathew.androidclass.listeners.FragmentTabListener;
 import com.pmathew.androidclass.models.Tweet;
 
 import org.json.JSONArray;
@@ -23,51 +29,15 @@ import org.scribe.builder.api.TwitterApi;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimelineActivity extends Activity {
-
-    private TwitterClient twitterClient;
-    private List<Tweet> tweets;
-    private TweetArrayAdapter tweetArrayAdapter;
-    private ListView lvTweets;
+public class TimelineActivity extends FragmentActivity {
     public static final int REQUEST_CODE=123;
-    private String lastTweetId=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
-        twitterClient = TwitterApplication.getRestClient();
-        tweets = new ArrayList<Tweet>();
-        lvTweets = (ListView) findViewById(R.id.lvTweets);
-        tweetArrayAdapter = new TweetArrayAdapter(this, tweets);
-        lvTweets.setAdapter(tweetArrayAdapter);
-        lvTweets.setOnScrollListener(new EndlessScrollListener() {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount) {
-                // Triggered only when new data needs to be appended to the list
-                // Add whatever code is needed to append new items to your AdapterView
-                populateTimeline(page);
-                // or customLoadMoreDataFromApi(totalItemsCount);
-            }
-        });
 
-        populateTimeline(0);
-    }
-
-    private void populateTimeline(int page){
-        twitterClient.getHomeTimeline(new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(JSONArray jsonArray) {
-                List<Tweet> tweets = Tweet.fromJSONArray(jsonArray);
-
-                if(tweets != null && tweets.size() > 0){
-                    lastTweetId = String.valueOf(tweets.get(tweets.size() - 1).getUid());
-                }
-
-                tweetArrayAdapter.addAll(tweets);
-            }
-        }, lastTweetId);
-
+        setupTabs();
     }
 
     @Override
@@ -83,18 +53,44 @@ public class TimelineActivity extends Activity {
         startActivityForResult(i, REQUEST_CODE);
     }
 
-    public void refresh(MenuItem menuItem){
-        lastTweetId = null;
-        tweetArrayAdapter.clear();
-        populateTimeline(0);
+    public void profileView(MenuItem menuItem){
+        Intent i  = new Intent(this,ProfileActivity.class);
+        startActivityForResult(i, REQUEST_CODE);
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        lastTweetId = null;
-        tweetArrayAdapter.clear();
-        populateTimeline(0);
+
+    }
+
+    private void setupTabs() {
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(true);
+
+        ActionBar.Tab tab1 = actionBar
+                .newTab()
+                .setText("Home")
+                .setIcon(R.drawable.ic_home)
+                .setTag("HomeTimelineFragment")
+                .setTabListener(
+                        new FragmentTabListener<HomeTimelineFragment>(R.id.flContainer, this, "home",
+                                HomeTimelineFragment.class));
+
+        actionBar.addTab(tab1);
+        actionBar.selectTab(tab1);
+
+        ActionBar.Tab tab2 = actionBar
+                .newTab()
+                .setText("Mentions")
+                .setIcon(R.drawable.ic_mentions)
+                .setTag("MentionsTimelineFragment")
+                .setTabListener(
+                        new FragmentTabListener<MentionsTimelineFragment>(R.id.flContainer, this, "mentions",
+                                MentionsTimelineFragment.class));
+
+        actionBar.addTab(tab2);
     }
 
 
