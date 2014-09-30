@@ -16,5 +16,13 @@ The following user stories are completed:
 -> User can then enter a new tweet and post this to twitter
 -> User is taken back to home timeline with new tweet visible in timeline after refresh
 
+User can view their home timeline tweets.
+User can view the recent mentions of their username.
+User can scroll to bottom of either of these lists and new tweets will load ("infinite scroll")
+User can see picture, tagline, # of followers, # of following, and tweets on their profile.
+User can click on the profile image in any tweet to see another user's profile.
+User can see picture, tagline, # of followers, # of following, and tweets of clicked user.
+Profile view should include that user's timeline
 
-![GIF](TwitterDemo.gif)
+
+![GIF](TwitterDemo_part2.gif)
